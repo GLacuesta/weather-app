@@ -1,0 +1,22 @@
+.WeatherPerDay {
+    border: 1px solid #b3b3b3;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 4px 4px #b3b3b3;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.WeatherPerDay div {
+    margin: 0 10px;
+}
+.WeatherPerDay:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+object, img {
+    height: 25px;
+    width: 25px;
+}
