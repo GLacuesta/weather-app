@@ -41,12 +41,13 @@ describe('<Weather />', () => {
 
     it('should render multiple <WeatherPerDay /> based on consolidated_weather length, 5 instances at max ', () => {
         wrapper.setProps(props);
+        const consolidated_weather = props.weather.consolidated_weather; // removes mutation of props
 
-        if (props.weather.consolidated_weather.length > 5) {
-            props.weather.consolidated_weather.length = 5
+        if (consolidated_weather.length > 5) {
+            consolidated_weather.length = 5
         }
         
-        expect(wrapper.find(WeatherPerDay)).toHaveLength(props.weather.consolidated_weather.length);
+        expect(wrapper.find(WeatherPerDay)).toHaveLength(consolidated_weather.length);
     });
 
 

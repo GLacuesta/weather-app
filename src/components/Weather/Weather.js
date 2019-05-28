@@ -8,13 +8,17 @@ const weather = (props) => {
 
     let weather = null, count = 0;
     if (props.weather.consolidated_weather) {
+
+        // added this for immutably, forgot about before
+        const consolidated_weather = props.weather.consolidated_weather;
         
-        //remove this if block for dynamic length or not enforcing 5 based in specs
-        if (props.weather.consolidated_weather.length > 5) {
-            props.weather.consolidated_weather.length = 5;
+        //r emove this if block for dynamic length or not enforcing 5 based in specs
+        // mutation of local variable
+        if (consolidated_weather.length > 5) {
+            consolidated_weather.length = 5;
         }
 
-        weather = props.weather.consolidated_weather.map(w => {
+        weather = consolidated_weather.map(w => {
             return <WeatherPerDay 
                         key={w.id}
                         name={w.weather_state_name}
@@ -24,7 +28,7 @@ const weather = (props) => {
                         date={w.applicable_date}/>
         });
         
-        count = props.weather.consolidated_weather.length;
+        count = consolidated_weather.length;
     }
 
     return (
