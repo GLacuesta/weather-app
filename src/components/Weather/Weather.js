@@ -10,7 +10,7 @@ const weather = (props) => {
     if (props.weather.consolidated_weather) {
 
         // added this for immutably, forgot about before
-        const consolidated_weather = props.weather.consolidated_weather;
+        const consolidated_weather = [ ...props.weather.consolidated_weather ];
         
         //r emove this if block for dynamic length or not enforcing 5 based in specs
         // mutation of local variable
